@@ -12,7 +12,7 @@ then
 fi
 
 set -eu
-
+echo "starting deploy cloudformation template"
 aws cloudformation create-stack \
         --capabilities CAPABILITY_IAM \
         --stack-name $CODEPIPELINE_STACK_NAME \
