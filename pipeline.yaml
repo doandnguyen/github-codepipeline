@@ -8,18 +8,16 @@ Parameters:
   GitHubOAuthToken:
     Type: String
     NoEcho: true
-    MinLength: 93
-    MaxLength: 93
     AllowedPattern: '[A-Za-z0-9_]*'
 
   # *** The remaining parameters should either be:
   # - overridden via changing "Default" here (PREFERABLE, since then they're in source control)
   # - or you can pass them in when creating / updating the stack
-  
+
   # *** The owner of the Github repo for this application.
   GitHubOwner:
     Type: String
-    Default: symphoniacloud
+    Default: doandnguyen
     AllowedPattern: "[A-Za-z0-9-]+"
 
   GitHubRepo:
@@ -121,7 +119,7 @@ Resources:
 
   CodePipelineServiceRolePolicy:
     Type: AWS::IAM::Policy
-    Properties: 
+    Properties:
       PolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -246,7 +244,7 @@ Resources:
             - appconfig:GetDeployment
             Resource: "*"
       PolicyName: CodePipelineServiceRolePolicy
-      Roles: 
+      Roles:
         - !Ref CodePipelineRole
 
 
